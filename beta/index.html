@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gitarren Galerie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #4a3728;
+        }
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(74, 55, 40, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            width: 80%;
+            max-width: 600px;
+        }
+        .navbar a {
+            color: #d4af37;
+            text-decoration: none;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropbtn {
+            background-color: #d4af37;
+            color: #4a3728;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: rgba(249, 249, 249, 0.9);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .dropdown-content a {
+            color: #4a3728;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(241, 241, 241, 0.9);
+        }
+        .header {
+            background-color: #f5f5f5;
+            padding: 6rem 2rem 2rem;
+            text-align: center;
+        }
+        .slideshow {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .slideshow img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+        .slideshow img:first-child {
+            display: block;
+        }
+        .content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h1 {
+            color: #d4af37;
+        }
+        .message-form {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #f5f5f5;
+            border-radius: 15px;
+        }
+        .message-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            border: 1px solid #4a3728;
+        }
+        .message-form button {
+            background-color: #d4af37;
+            color: #4a3728;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .impressum {
+            background-color: #4a3728;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-radius: 15px 15px 0 0;
+        }
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9em;
+            color: #d4af37;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+            <a href="#home">Home</a>
+            <a href="#about">Über uns</a>
+            <a href="#gallery">Galerie</a>
+            <a href="#contact">Kontakt</a>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Menü</button>
+            <div class="dropdown-content">
+                <a href="#biography">Biografie</a>
+                <a href="#competitions">Wettbewerbe</a>
+                <a href="#press">Presse</a>
+                <a href="#links">Links</a>
+                <a href="#booking">Buchung/Nachricht</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header">
+        <h1>Willkommen in unserer Gitarren Galerie</h1>
+        <div class="slideshow">
+            <img src="/placeholder.svg?height=400&width=800" alt="Gitarre 1">
+            <img src="/placeholder.svg?height=400&width=800" alt="Gitarre 2">
+            <img src="/placeholder.svg?height=400&width=800" alt="Gitarre 3">
+        </div>
+    </header>
+
+    <main class="content">
+        <h2>Über unsere Gitarren</h2>
+        <p>Hier finden Sie eine Auswahl der schönsten Gitarren. Von klassischen Akustikgitarren bis hin zu modernen E-Gitarren - wir haben für jeden Geschmack das Richtige.</p>
+        
+        <div class="message-form">
+            <h3>Senden Sie uns eine Nachricht</h3>
+            <form>
+                <textarea rows="4" placeholder="Ihre Nachricht"></textarea>
+                <button type="submit">Senden</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="impressum">
+        <h3>Impressum</h3>
+        <p>Gitarren Galerie GmbH<br>
+        Musterstraße 123<br>
+        12345 Musterstadt<br>
+        Tel: 01234 / 56789<br>
+        E-Mail: info@gitarren-galerie.de</p>
+        <div class="copyright">
+            &copy; <span id="year"></span> Sono Labs. Alle Rechte vorbehalten.
+        </div>
+    </footer>
+
+    <script>
+        // Einfache Diashow-Funktion
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.querySelectorAll('.slideshow img');
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 3000); // Wechselt alle 3 Sekunden
+        }
+
+        // Aktuelles Jahr für Copyright
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
